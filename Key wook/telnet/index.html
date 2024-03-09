@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload and Download</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>File Upload and Download</h1>
+
+    <!-- แบบฟอร์มสำหรับส่งไฟล์ -->
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit">Upload</button>
+    </form>
+
+    <hr>
+
+    <!-- ตารางสำหรับรายการไฟล์ที่อัปโหลดและสามารถดาวน์โหลดได้ -->
+    <h2>Uploaded Files</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>File Name</th>
+                <th>Download</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $files = scandir('uploads/');
+            foreach ($files as $file) {
+                if ($file !== '.' && $file !== '..') {
+                    echo "<tr>";
+                    echo "<td>$file</td>";
+                    echo "<td><a href='downloads/$file' download>Download</a></td>";
+                    echo "</tr>";
+                }
+            }
+            ?>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <!-- แบบฟอร์มสำหรับค้นหาไฟล์ -->
+    <form action="search.php" method="get">
+        <input type="text" name="query" placeholder="Enter filename to search">
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>

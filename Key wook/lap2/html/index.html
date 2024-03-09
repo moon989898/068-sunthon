@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="title">HONOF</p>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+</body>
+</html>
+
+
+<script>
+    var num = 10;
+    let name = "Sunthon";
+    age = 20;
+    const year = 2003;
+
+    console.log(year);
+
+    fruit = ["banana","apple"];
+
+    console.log(fruit[1]);
+
+    plant = {fruit:"banana", car:"nissann", color:"red"}
+
+    console.log(plant);
+
+    datajso = {
+        employee: [{ name: "Win"}, {age: 20 }]
+    }
+
+    console.log(datajso.employee[0].name);
+
+    let msg = name +  " " + year;
+    msg = `${name} ${year}` ; 
+
+    console.log(msg);
+
+    document.getElementById('title').innerHTML=msg;
+
+    $(function () {
+        $("#title").html(msg + " jQuery")
+        .addClass("red");
+    });
+</script>
